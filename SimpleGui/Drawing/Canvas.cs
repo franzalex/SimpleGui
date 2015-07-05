@@ -95,6 +95,13 @@ namespace SimpleGui.Drawing
         /// <summary>Gets or sets the graphics for drawing to the canvas.</summary>
         internal Graphics Graphics { get; set; }
 
+        /// <summary>Clears the canvas of all drawing, filling it with the <see cref="Canvas.BackgroundColor"/>.</summary>
+        public void Clear()
+        {
+            if (Graphics != null)
+                Graphics.FillRectangle(_backgroundBrush, canvasRect);
+        }
+
         /// <summary>Draws a circle with the specified parameters.</summary>
         /// <param name="lineColor">Color of the line along the edge of the circle.</param>
         /// <param name="lineWidth">Width of the line along the edge of the circle.</param>
