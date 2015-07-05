@@ -260,6 +260,23 @@ namespace SimpleGui.Drawing
             }
         }
 
+        /// <summary>Draws a point with the specified color at the given location.</summary>
+        /// <param name="color">The color of the point to be drawn.</param>
+        /// <param name="x">The X-coordinate of the location of the point to be drawn.</param>
+        /// <param name="y">The Y-coordinate of the location of the point to be drawn.</param>
+        public void DrawPoint(Color color, int x, int y)
+        {
+            this.DrawCircle(color, 1, color, new Point(x, y), 1);
+        }
+
+        /// <summary>Draws a point with the specified color at the given location.</summary>
+        /// <param name="color">The color of the point to be drawn.</param>
+        /// <param name="point">The location of the point to be drawn.</param>
+        public void DrawPoint(Color color, Point point)
+        {
+            this.DrawCircle(color, 1, color, point, 1);
+        }
+
         /// <summary>Draws the polygon with the specified parameters.</summary>
         /// <param name="lineColor">Color of the line along the polygon's edge.</param>
         /// <param name="lineWidth">Width of the line.</param>
