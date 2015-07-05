@@ -33,6 +33,12 @@ namespace SimpleGui.Controls
             set { this.StandardControl.Text = value; }
         }
 
+        /// <summary>Clears the input text.</summary>
+        public void Clear()
+        {
+            this.StandardControl.Text = "";
+        }
+
         /// <summary>Returns a <see cref="System.String"/> that represents this instance.</summary>
         /// <returns>A <see cref="System.String"/> that represents this instance.</returns>
         public override string ToString()

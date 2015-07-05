@@ -33,6 +33,7 @@ namespace SimpleGui.Controls
             }
             set
             {
+                this.Clear();
                 for (int i = 0; i < this.StandardControl.Items.Count; i++)
                 {
                     if (this.StandardControl.Items[i].ToString().Equals(value, System.StringComparison.CurrentCultureIgnoreCase))
@@ -42,6 +43,12 @@ namespace SimpleGui.Controls
                     }
                 }
             }
+        }
+
+        /// <summary>Clears the selection.</summary>
+        public void Clear()
+        {
+            this.StandardControl.SelectedIndex = -1;
         }
 
         /// <summary>Returns a <see cref="System.String"/> that represents this instance.</summary>
