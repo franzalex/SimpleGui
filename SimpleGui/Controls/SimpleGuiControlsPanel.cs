@@ -27,7 +27,7 @@ namespace SimpleGui.Controls
         /// <param name="caption">The caption to display on the button.</param>
         /// <param name="clickHandler">The click event handler.</param>
         /// <param name="buttonWidth">Width of the button.</param>
-        public SimpleButton AddButton(string caption, MultiControlEventHandler<Button> clickHandler, int buttonWidth = -1)
+        public SimpleButton AddButton(string caption, MultiControlEventHandler clickHandler, int buttonWidth = -1)
         {
             var btn = new Button() {
                 Dock = DockStyle.Left,
@@ -69,7 +69,7 @@ namespace SimpleGui.Controls
         /// <param name="caption">The ComboBox's caption.</param>
         /// <param name="selectionHandler">The handler for the selection changed event.</param>
         /// <param name="options">The options to display in the ComboBox.</param>
-        public SimpleComboBox AddComboBox(string caption, MultiControlTextEventHandler<ComboBox> selectionHandler, params string[] options)
+        public SimpleComboBox AddComboBox(string caption, MultiControlTextEventHandler selectionHandler, params string[] options)
         {
             var lbl = new Label() {
                 Text = caption,
@@ -118,7 +118,7 @@ namespace SimpleGui.Controls
         /// <summary>Adds a text box to the form.</summary>
         /// <param name="caption">The caption for the text box.</param>
         /// <param name="inputHandler">The event handler for text input.</param>
-        public SimpleTextBox AddTextBox(string caption, MultiControlTextEventHandler<TextBox> inputHandler)
+        public SimpleTextBox AddTextBox(string caption, MultiControlTextEventHandler inputHandler)
         {
             var lbl = new Label() {
                 Text = caption,

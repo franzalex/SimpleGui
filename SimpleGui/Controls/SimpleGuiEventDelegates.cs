@@ -25,7 +25,7 @@ namespace SimpleGui.Controls
     /// <see cref="SimpleControl"/> class.
     /// </summary>
     /// <param name="control">The <see cref="SimpleControl"/> that raised the event.</param>
-    public delegate void MultiControlEventHandler<T>(SimpleControl<T> control) where T : Control;
+    public delegate void MultiControlEventHandler(SimpleControl control);
 
     /// <summary>
     /// Represents the method that will handle events raised by one or more instances of the
@@ -33,7 +33,7 @@ namespace SimpleGui.Controls
     /// </summary>
     /// <param name="control">The <see cref="SimpleControl" /> that raised the event.</param>
     /// <param name="text">The text associated with the event.</param>
-    public delegate void MultiControlTextEventHandler<T>(SimpleControl<T> control, string text) where T : Control;
+    public delegate void MultiControlTextEventHandler(SimpleControl control, string text);
 
     /// <summary>Represents the method that will handle simple events raised by a <see cref="SimpleControl"/>.</summary>
     public delegate void SimpleEventHandler();
