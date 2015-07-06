@@ -130,7 +130,6 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "SimpleGuiForm";
-            this.Text = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.spltControls.Panel1.ResumeLayout(false);
             this.spltControls.Panel2.ResumeLayout(false);
