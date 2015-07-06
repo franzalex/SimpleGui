@@ -7,6 +7,9 @@ namespace SimpleGui.Drawing
 {
     public class Canvas
     {
+        public const string Font_Monospace = "monospace";
+        public const string Font_SansSerif = "sans-serif";
+        public const string Font_Serif = "serif";
         private SolidBrush _backgroundBrush;
         private Control _owner;
         private float _scale;
@@ -61,7 +64,7 @@ namespace SimpleGui.Drawing
             }
         }
 
-        /// <summary>Gets the canvas' rectangle.</summary>
+        /// <summary>Gets the canvas' rectangle in client coordinates.</summary>
         public Rectangle Rectangle
         {
             get { return canvasRect.ToRectangle(); }
@@ -100,6 +103,31 @@ namespace SimpleGui.Drawing
         {
             if (Graphics != null)
                 Graphics.FillRectangle(_backgroundBrush, canvasRect);
+        }
+
+        /// <summary>Creates a screen shot of the canvas.</summary>
+        /// <param name="draw">The method containing the commands for drawing to the canvas.</param>
+        /// <returns>A screen-shot of the canvas.</returns>
+        public Bitmap CreateScreenshot(Controls.DrawEventHandler draw)
+        {
+            var oldScale = _scale;
+            var oldRect = canvasRect;
+            var oldGfx = Graphics;
+
+            var bmp = new Bitmap(Size.Width, Size.Height);
+            using (var g = Graphics.FromImage(bmp))
+            {
+                this._scale = 1;
+                this.Graphics = g;
+                this.canvasRect = new RectangleF(Point.Empty, this.Size);
+                draw.Invoke(this);
+            }
+
+            this._scale = oldScale;
+            this.Graphics = oldGfx;
+            this.canvasRect = oldRect;
+
+            return bmp;
         }
 
         /// <summary>Draws a circle with the specified parameters.</summary>
@@ -304,10 +332,10 @@ namespace SimpleGui.Drawing
             {
                 if (fillColor != Color.Transparent)
                     using (var fill = new SolidBrush(fillColor))
-                        Graphics.FillPolygon(fill, points);
+                        Graphics.FillPolygon(fill, points.Select(pt => CanvasToClient(pt)).ToArray());
 
                 using (var pen = new Pen(lineColor, lineWidth * _scale))
-                    Graphics.DrawPolygon(pen, points);
+                    Graphics.DrawPolygon(pen, points.Select(pt => CanvasToClient(pt)).ToArray());
             }
         }
 
@@ -345,7 +373,7 @@ namespace SimpleGui.Drawing
         /// <param name="textColor">Colour of the text.</param>
         public void DrawText(string text, Point location, float fontSize, Color textColor)
         {
-            this.DrawText(text, location, fontSize, textColor, "sans serif");
+            this.DrawText(text, location, fontSize, Font_SansSerif, textColor);
         }
 
         /// <summary>
@@ -355,8 +383,8 @@ namespace SimpleGui.Drawing
         /// <param name="text">The text to be drawn to the <see cref="Canvas"/>.</param>
         /// <param name="location">The lower upper left position at which the text will be drawn.</param>
         /// <param name="fontSize">Size of the font.</param>
-        /// <param name="textColor">Colour of the text.</param>
         /// <param name="fontName">Name of the font face to use in drawing the text.</param>
+        /// <param name="textColor">Colour of the text.</param>
         /// <remarks>
         /// <para>
         /// Any valid font name can be specified as <paramref name="fontName"/>. Additionally,
@@ -364,20 +392,33 @@ namespace SimpleGui.Drawing
         /// the default sans serif, serif or monospace font faces respectively.
         /// </para>
         /// </remarks>
-        public void DrawText(string text, Point location, float fontSize, Color textColor, string fontName)
+        public void DrawText(string text, Point location, float fontSize, string fontName, Color textColor)
         {
             if (Graphics != null)
             {
-                var fontIndex = "sans-serif|serif|monospace".Split('|').ToList().IndexOf(fontName.ToLower());
-                if (fontIndex > -1)
-                    fontName = new[] { "Segoe UI", "Constantia", "Consolas" }[fontIndex];
-                var fontFamily = FontFamily.Families.FirstOrDefault(f => f.Name.ToLower() == fontName.ToLower());
-
-                using (var font = new Font(fontFamily, fontSize * _scale))
+                using (var font = new Font(GetFontFamily(fontName), fontSize * _scale))
                 using (var brush = new SolidBrush(textColor))
                 {
                     Graphics.DrawString(text, font, brush, CanvasToClient(location));
                 }
+            }
+        }
+
+        /// <summary>
+        /// Measures the size of the text specified when drawn with the given font and size.
+        /// </summary>
+        /// <param name="text">The text whose size is to be measured.</param>
+        /// <param name="fontSize">Size of the font.</param>
+        /// <param name="fontName">Name of the font face to measure the text with.</param>
+        /// <returns></returns>
+        public Size MeasureText(string text, float fontSize, string fontName)
+        {
+            using (var font = new Font(GetFontFamily(fontName), fontSize))
+            {
+                if (Graphics != null)
+                    return Graphics.MeasureString(text, font).ToSize();
+                else
+                    return System.Windows.Forms.TextRenderer.MeasureText(text, font);
             }
         }
 
@@ -386,8 +427,8 @@ namespace SimpleGui.Drawing
         internal PointF CanvasToClient(Point point)
         {
             //+ HIGH: Debug canvas to point code
-            var ptX = point.X / _scale;
-            var ptY = point.Y / _scale;
+            var ptX = point.X * _scale;
+            var ptY = point.Y * _scale;
 
             ptX += canvasRect.X;
             ptY += canvasRect.Y;
@@ -403,8 +444,8 @@ namespace SimpleGui.Drawing
             var ptX = point.X - canvasRect.X;
             var ptY = point.Y - canvasRect.Y;
 
-            ptX *= _scale;
-            ptY *= _scale;
+            ptX /= _scale;
+            ptY /= _scale;
 
             return new Point((int)ptX, (int)ptY);
         }
@@ -440,6 +481,34 @@ namespace SimpleGui.Drawing
                                                 newW, newH);
                 }
             }
+        }
+
+        /// <summary>Gets the font family of the font with the name specified.</summary>
+        /// <param name="familyName">Name of the family.</param>
+        /// <remarks>
+        /// <para>
+        /// Any valid font name can be specified as <paramref name="fontName"/>. Additionally,
+        /// 'sans-serif', 'serif' and 'monospace' can be specified in order to draw the text with
+        /// the default sans serif, serif or monospace font faces respectively.
+        /// </para>
+        /// </remarks>
+        /// <returns>
+        /// The <see cref="FontFamily"/> with the name specified or a generic sans-serif font if
+        /// there is no installed font with the given name.
+        /// </returns>
+        private FontFamily GetFontFamily(string familyName)
+        {
+            // predefined fonts
+            var fontIndex = new[] { Font_SansSerif, Font_Serif, Font_Monospace }.ToList().IndexOf(familyName.ToLower());
+            if (fontIndex > -1)
+                familyName = new[] { "Segoe UI", "Constantia", "Consolas" }[fontIndex];
+
+            var fontFamily = FontFamily.Families.Where(f => f.Name.ToLower() == familyName.ToLower());
+
+            if (fontFamily.Any())
+                return fontFamily.First();
+            else
+                return FontFamily.GenericSansSerif;
         }
 
         /// <summary>Handles the SizeChanged event of the Owner control.</summary>
