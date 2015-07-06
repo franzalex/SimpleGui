@@ -1,70 +1,67 @@
 ﻿using SimpleGui.Controls;
+using System;
 using System.Windows.Forms;
+using ProjectResources = SimpleGui.Properties.Resources;
 
 namespace SimpleGui
 {
     public class SimpleGui
     {
-        private static SimpleGuiForm Form;
-        private static SimpleGuiControlsPanel _controlsPanel;
-        private static SimpleGuiCanvasPanel _canvasPanel;
-        private static SimpleGuiLogPanel _logPanel;
+        private SimpleGuiForm Form;
+        private SimpleGuiControlsPanel _controlsPanel;
+        private SimpleGuiCanvasPanel _canvasPanel;
+        private SimpleGuiLogPanel _logPanel;
 
-        /// <summary>Static initializer of the <see cref="SimpleGui"/> class.</summary>
-        static SimpleGui()
+        /// <summary>Creates a new instance of the <see cref="SimpleGui"/> class.</summary>
+        public SimpleGui()
         {
-            Form = new SimpleGuiForm();
+            Form = new SimpleGuiForm() {
+                Text = "Simple GUI",
+                Icon = ProjectResources.AppIcon
+            };
+
             _controlsPanel = new SimpleGuiControlsPanel(Form.spltControls.Panel1);
             _canvasPanel = new SimpleGuiCanvasPanel(Form.spltCanvas.Panel1);
             _logPanel = new SimpleGuiLogPanel(Form.spltCanvas.Panel2);
         }
 
         /// <summary>Gets the canvas panel of the <see cref="SimpleGuiForm"/>.</summary>
-        public static SimpleGuiCanvasPanel CanvasPanel
+        public SimpleGuiCanvasPanel CanvasPanel
         {
             get { return _canvasPanel; }
         }
 
         /// <summary>Gets the controls panel of the <see cref="SimpleGuiForm"/>.</summary>
-        public static SimpleGuiControlsPanel ControlsPanel
+        public SimpleGuiControlsPanel ControlsPanel
         {
             get { return _controlsPanel; }
         }
 
         /// <summary>Gets the output panel of the <see cref="SimpleGUiForm"/>.</summary>
-        public static SimpleGuiLogPanel Output
+        public SimpleGuiLogPanel Output
         {
             get { return _logPanel; }
         }
 
         /// <summary>Gets or sets the title of the SimpleGui form.</summary>
-        public static string WindowTitle
+        public string WindowTitle
         {
             get { return Form.Text; }
             set { Form.Text = value; }
         }
 
         /// <summary>Starts running the SimpleGui program.</summary>
-        public static void Start()
+        public void Start()
         {
             try
             {
-                // try to run the application normally
                 Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(Form);
             }
-            catch
+            catch (Exception ex)
             {
-                try
-                {
-                    // if it fails, display the form modally
-                    Form.ShowDialog();
-                }
-                catch
-                {
+                if (ex.GetType() != typeof(ObjectDisposedException))
                     MessageBox.Show("Could not run the SimpleGui application.");
-                }
             }
         }
     }
