@@ -132,7 +132,7 @@ namespace SimpleGui.Controls
             var stb = new SimpleTextBox(lbl, txt);
             txt.KeyDown += (o, e) => { if (e.KeyCode == Keys.Enter) inputHandler.Invoke(stb, txt.Text); };
 
-            return new SimpleTextBox(lbl, txt);
+            return stb;
         }
     }
 }
