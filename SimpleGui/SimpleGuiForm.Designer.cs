@@ -7,11 +7,6 @@
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        internal System.ComponentModel.IContainer Components
-        {
-            get { return components; }
-        }
-
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>

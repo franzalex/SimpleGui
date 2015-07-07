@@ -1,0 +1,794 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SimpleGui</name>
+    </assembly>
+    <members>
+        <member name="T:SimpleGui.Controls.SimpleComboBox">
+            <summary>
+            A simple class encapsulating the <see cref="T:System.Windows.Forms.ComboBox"/> control.
+            </summary>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleControl.ToString">
+            <summary>Returns a <see cref="T:System.String"/> that represents this instance.</summary>
+            <returns>A <see cref="T:System.String"/> that represents this instance.</returns>
+        </member>
+        <member name="P:SimpleGui.Controls.SimpleControl.Caption">
+            <summary>Gets or sets the caption.</summary>
+            <value>The caption to display.</value>
+        </member>
+        <member name="P:SimpleGui.Controls.SimpleControl.StandardControl">
+            <summary>
+            Gets the standard <c>System.Windows.Forms</c> control encapsulated by this instance.
+            </summary>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleControl`1.#ctor(`0)">
+            <summary>Initializes a new instance of the <see cref="T:SimpleGui.Controls.SimpleControl`1"/> class.</summary>
+            <param name="control">The underlying control.</param>
+        </member>
+        <member name="P:SimpleGui.Controls.SimpleControl`1.StandardControl">
+            <summary>
+            Gets the standard <c>System.Windows.Forms</c> control encapsulated by this instance.
+            </summary>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleComboBox.Clear">
+            <summary>Clears the selection.</summary>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleComboBox.ToString">
+            <summary>Returns a <see cref="T:System.String"/> that represents this instance.</summary>
+            <returns>A <see cref="T:System.String"/> that represents this instance.</returns>
+        </member>
+        <member name="P:SimpleGui.Controls.SimpleComboBox.Caption">
+            <summary>Gets or sets the caption.</summary>
+            <value>The caption.</value>
+        </member>
+        <member name="P:SimpleGui.Controls.SimpleComboBox.Text">
+            <summary>Gets or sets the input text of this <see cref="T:SimpleGui.Controls.SimpleTextBox"/>.</summary>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleGuiPanel.#ctor(System.Windows.Forms.SplitterPanel)">
+            <summary>Initializes a new instance of the <see cref="T:SimpleGui.Controls.SimpleGuiPanel"/> class.</summary>
+            <param name="panel">The panel to which this <see cref="T:SimpleGui.Controls.SimpleGuiPanel"/> is bound.</param>
+        </member>
+        <member name="P:SimpleGui.Controls.SimpleGuiPanel.Panel">
+            <summary>Gets the panel to which this <see cref="T:SimpleGui.Controls.SimpleGuiPanel"/> is bound.</summary>
+        </member>
+        <member name="P:SimpleGui.Controls.SimpleGuiPanel.Visible">
+            <summary>Gets or sets a value indicating whether the panel is visible.</summary>
+            <value><c>true</c> if the panel is visible; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SimpleGui.Controls.SimpleGuiPanel.IsPanel1">
+            <summary>Gets a value indicating whether this is the Panel1 of the <see cref="P:SimpleGui.Controls.SimpleGuiPanel.Parent"/>.</summary>
+        </member>
+        <member name="P:SimpleGui.Controls.SimpleGuiPanel.Parent">
+            <summary>Gets the parent.</summary>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleGuiCanvasPanel.GetScreenshot">
+            <summary>Gets a screen-shot of the canvas.</summary>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleGuiCanvasPanel.SetDrawHandler(SimpleGui.Controls.DrawEventHandler)">
+            <summary>Sets an event handler for drawing frames to the canvas.</summary>
+            <param name="drawHandler">The event handler for drawing frames.</param>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleGuiCanvasPanel.SetKeyDownHandler(SimpleGui.Controls.KeyEventHandler)">
+            <summary>Sets an event handler for detecting when a key is down.</summary>
+            <param name="keyDownHandler">The event handler for key down events.</param>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleGuiCanvasPanel.SetKeyUpHandler(SimpleGui.Controls.KeyEventHandler)">
+            <summary>Sets an event handler for detecting when a key is released.</summary>
+            <param name="keyUpHandler">The event handler for key up events.</param>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleGuiCanvasPanel.SetMouseClickHandler(SimpleGui.Controls.MouseEventHandler)">
+            <summary>Sets an event handler to listen for mouse clicks.</summary>
+            <param name="mouseClickHandler">The mouse click event handler.</param>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleGuiCanvasPanel.SetMouseDragHandler(SimpleGui.Controls.MouseEventHandler)">
+            <summary>Sets an event handler to listen for dragging the mouse.</summary>
+            <param name="mouseClickHandler">The mouse drag event handler.</param>
+            <remarks>
+            <para>A mouse drag event occurs when the mouse is moved while a button is held down.</para>
+            <para>
+            This event will be raised once for each new position the mouse moves to while the button
+            is held down.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleGuiCanvasPanel.Start">
+            <summary>Starts drawing the canvas at the specified FPS.</summary>
+            <param name="fps">The number of frames to be drawn per second.</param>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleGuiCanvasPanel.Stop">
+            <summary>Stops rendering the canvas.</summary>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleGuiCanvasPanel.CanRenderNextFrame">
+            <summary>Determines whether this instance can render the next frame.</summary>
+            <returns><c>true</c> if the next frame can be rendered; otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleGuiCanvasPanel.Panel_Paint(System.Object,System.Windows.Forms.PaintEventArgs)">
+            <summary>Handles the Paint event of the Panel control.</summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleGuiCanvasPanel.splitterPanel_MouseClick(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>Handles the MouseClick event of the splitterPanel control.</summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleGuiCanvasPanel.splitterPanel_MouseMove(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>Handles the MouseMove event of the splitterPanel control.</summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="P:SimpleGui.Controls.SimpleGuiCanvasPanel.CanvasBackColor">
+            <summary>Gets or sets the background color of the canvas.</summary>
+        </member>
+        <member name="P:SimpleGui.Controls.SimpleGuiCanvasPanel.CanvasSize">
+            <summary>Gets the size of the drawing canvas.</summary>
+        </member>
+        <member name="P:SimpleGui.Controls.SimpleGuiCanvasPanel.FrameRate">
+            <summary>Gets the current frame rate.</summary>
+        </member>
+        <member name="P:SimpleGui.Controls.SimpleGuiCanvasPanel.IsRunning">
+            <summary>Gets a value indicating whether the canvas is running.</summary>
+            <value><c>true</c> if the canvas is running; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SimpleGui.Controls.SimpleGuiCanvasPanel.TargetFrameRate">
+            <summary>Gets or sets the target frame rate at which the canvas is to be updated.</summary>
+        </member>
+        <member name="P:SimpleGui.Controls.SimpleGuiCanvasPanel.Visible">
+            <summary>Gets or sets a value indicating whether the panel is visible.</summary>
+            <value><c>true</c> if the panel is visible; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleGuiControlsPanel.AddButton(System.String,SimpleGui.Controls.SimpleEventHandler,System.Int32)">
+            <summary>Adds a button to the form.</summary>
+            <param name="caption">The caption to display on the button.</param>
+            <param name="clickHandler">The click event handler.</param>
+            <param name="buttonWidth">Width of the button.</param>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleGuiControlsPanel.AddButton(System.String,SimpleGui.Controls.MultiControlEventHandler,System.Int32)">
+            <summary>Adds a button to the form.</summary>
+            <param name="caption">The caption to display on the button.</param>
+            <param name="clickHandler">The click event handler.</param>
+            <param name="buttonWidth">Width of the button.</param>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleGuiControlsPanel.AddComboBox(System.String,SimpleGui.Controls.SimpleTextEventHandler,System.String[])">
+            <summary>Adds a ComboBox to the form.</summary>
+            <param name="caption">The ComboBox's caption.</param>
+            <param name="selectionHandler">The handler for the selection changed event.</param>
+            <param name="options">The options to display in the ComboBox.</param>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleGuiControlsPanel.AddComboBox(System.String,SimpleGui.Controls.MultiControlTextEventHandler,System.String[])">
+            <summary>Adds a ComboBox to the form.</summary>
+            <param name="caption">The ComboBox's caption.</param>
+            <param name="selectionHandler">The handler for the selection changed event.</param>
+            <param name="options">The options to display in the ComboBox.</param>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleGuiControlsPanel.AddLabel(System.String)">
+            <summary>Adds a label to the form.</summary>
+            <param name="caption">The caption to be displayed on the label.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleGuiControlsPanel.AddTextBox(System.String,SimpleGui.Controls.SimpleTextEventHandler)">
+            <summary>Adds a text box to the form.</summary>
+            <param name="caption">The caption for the text box.</param>
+            <param name="inputHandler">The event handler for text input.</param>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleGuiControlsPanel.AddTextBox(System.String,SimpleGui.Controls.MultiControlTextEventHandler)">
+            <summary>Adds a text box to the form.</summary>
+            <param name="caption">The caption for the text box.</param>
+            <param name="inputHandler">The event handler for text input.</param>
+        </member>
+        <member name="T:SimpleGui.Controls.DrawEventHandler">
+            <summary>Represents the method that will handle canvas drawing events.</summary>
+            <param name="canvas">The canvas to be drawn.</param>
+        </member>
+        <member name="T:SimpleGui.Controls.KeyEventHandler">
+            <summary>Represents the method that will handle keyboard events.</summary>
+            <param name="key">The key that triggered the event.</param>
+        </member>
+        <member name="T:SimpleGui.Controls.MouseEventHandler">
+            <summary>Represents the method that will handle mouse events.</summary>
+            <param name="location">The location at which the event occurred.</param>
+            <param name="button">The mouse button that triggered the event.</param>
+        </member>
+        <member name="T:SimpleGui.Controls.MultiControlEventHandler">
+            <summary>
+            Represents the method that will handle events raised by one or more instances of the
+            <see cref="T:SimpleGui.Controls.SimpleControl"/> class.
+            </summary>
+            <param name="control">The <see cref="T:SimpleGui.Controls.SimpleControl"/> that raised the event.</param>
+        </member>
+        <member name="T:SimpleGui.Controls.MultiControlTextEventHandler">
+            <summary>
+            Represents the method that will handle events raised by one or more instances of the
+            <see cref="T:SimpleGui.Controls.SimpleControl"/> class that involves text.
+            </summary>
+            <param name="control">The <see cref="T:SimpleGui.Controls.SimpleControl"/> that raised the event.</param>
+            <param name="text">The text associated with the event.</param>
+        </member>
+        <member name="T:SimpleGui.Controls.SimpleEventHandler">
+            <summary>Represents the method that will handle simple events raised by a <see cref="T:SimpleGui.Controls.SimpleControl"/>.</summary>
+        </member>
+        <member name="T:SimpleGui.Controls.SimpleTextEventHandler">
+            <summary>
+            Represents the method that will handle simple events raised by a <see cref="T:SimpleGui.Controls.SimpleControl"/>
+            that involves text.
+            </summary>
+            <param name="text">The text associated with the event.</param>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleGuiLogPanel.#ctor(System.Windows.Forms.SplitterPanel)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SimpleGui.Controls.SimpleGuiLogPanel"/> class.
+            </summary>
+            <param name="splitterPanel">The splitter panel.</param>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleGuiLogPanel.Print(System.String)">
+            <summary>Prints the specified message to the form's output.</summary>
+            <param name="message">The message to be printed.</param>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleGuiLogPanel.Clear">
+            <summary>Clears all text printed on the output.</summary>
+        </member>
+        <member name="P:SimpleGui.Controls.SimpleGuiLogPanel.Visible">
+            <summary>Gets or sets a value indicating whether the panel is visible.</summary>
+            <value><c>true</c> if the panel is visible; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:SimpleGui.Controls.SimpleTimer">
+            <summary>A timer calls an event handler repeatedly at a specified interval.</summary>
+            <remarks>
+            A program can have an arbitrary number of timers running simultaneously. However, having
+            many timers running will slow SimpleGui.
+            </remarks>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleTimer.#ctor(System.Windows.Forms.Timer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SimpleGui.Controls.SimpleTimer"/> class based on the specified <see cref="T:System.Windows.Forms.Timer"/>.
+            </summary>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleTimer.Start">
+            <summary>Starts the timer.</summary>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleTimer.Stop">
+            <summary>Stops the timer.</summary>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleTimer.ToString">
+            <summary>Returns a <see cref="T:System.String"/> that represents this instance.</summary>
+            <returns>A <see cref="T:System.String"/> that represents this instance.</returns>
+        </member>
+        <member name="P:SimpleGui.Controls.SimpleTimer.Interval">
+            <summary>
+            Gets or sets the time interval in milliseconds between two consecutive ticks.
+            </summary>
+        </member>
+        <member name="P:SimpleGui.Controls.SimpleTimer.IsRunning">
+            <summary>Gets a value indicating whether the timer is running.</summary>
+            <value><c>true</c> if the timer is running; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SimpleGui.Controls.SimpleTimer.StandardControl">
+            <summary>
+            Gets the standard <c>System.Windows.Forms</c> control encapsulated by this instance.
+            </summary>
+        </member>
+        <member name="F:SimpleGui.Drawing.Canvas.Font_Monospace">
+            <summary>String constant for selecting the default monospace font</summary>
+        </member>
+        <member name="F:SimpleGui.Drawing.Canvas.Font_SansSerif">
+            <summary>String constant for selecting the default sans-serif font</summary>
+        </member>
+        <member name="F:SimpleGui.Drawing.Canvas.Font_Serif">
+            <summary>String constant for selecting the default serif font</summary>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:SimpleGui.Drawing.Canvas"/> class.</summary>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.Clear">
+            <summary>Clears the canvas of all drawing, filling it with the <see cref="P:SimpleGui.Drawing.Canvas.BackgroundColor"/>.</summary>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.CreateScreenshot(SimpleGui.Controls.DrawEventHandler)">
+            <summary>Creates a screen shot of the canvas.</summary>
+            <param name="draw">The method containing the commands for drawing to the canvas.</param>
+            <returns>A screen-shot of the canvas.</returns>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.DrawCircle(System.Drawing.Color,System.Int32,System.Drawing.Point,System.Drawing.Size)">
+            <summary>Draws a circle with the specified parameters.</summary>
+            <param name="lineColor">Color of the line along the edge of the circle.</param>
+            <param name="lineWidth">Width of the line along the edge of the circle.</param>
+            <param name="location">The coordinates of the upper left corner of the circle.</param>
+            <param name="size">
+            The size of the circle. This will be squared to the minimum dimension if the Width and
+            Height are different.
+            </param>
+            <remarks>
+            If the dimensions of the <see cref="!:Size.Height"/> and <see cref="!:Size.Width"/> of the
+            <paramref name="size"/> parameter are not equal, the minimum of the two will be used to
+            create a square size for drawing the circle.
+            </remarks>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.DrawCircle(System.Drawing.Color,System.Int32,System.Drawing.Color,System.Drawing.Point,System.Drawing.Size)">
+            <summary>Draws a circle with the specified parameters.</summary>
+            <param name="lineColor">Color of the line along the edge of the circle.</param>
+            <param name="lineWidth">Width of the line along the edge of the circle.</param>
+            <param name="fillColor">Color to fill the area enclosed by the circle with.</param>
+            <param name="location">The coordinates of the upper left corner of the circle.</param>
+            <param name="size">
+            The size of the circle. This will be squared to the minimum dimension if the Width and
+            Height are different.
+            </param>
+            <remarks>
+            If the dimensions of the <see cref="!:Size.Height"/> and <see cref="!:Size.Width"/> of the
+            <paramref name="size"/> parameter are not equal, the minimum of the two will be used to
+            create a square size for drawing the circle.
+            </remarks>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.DrawCircle(System.Drawing.Color,System.Int32,System.Drawing.Point,System.Int32)">
+            <summary>Draws a circle with the specified parameters.</summary>
+            <param name="lineColor">Color of the line along the edge of the circle.</param>
+            <param name="lineWidth">Width of the line along the edge of the circle.</param>
+            <param name="center">The coordinates of the center of the circle.</param>
+            <param name="radius">The radius of the circle.</param>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.DrawCircle(System.Drawing.Color,System.Int32,System.Drawing.Color,System.Drawing.Point,System.Int32)">
+            <summary>Draws a circle with the specified parameters.</summary>
+            <param name="lineColor">Color of the line along the edge of the circle.</param>
+            <param name="lineWidth">Width of the line along the edge of the circle.</param>
+            <param name="fillColor">Color to fill the area enclosed by the circle with.</param>
+            <param name="center">The coordinates of the center of the circle.</param>
+            <param name="radius">The radius of the circle.</param>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.DrawEllipse(System.Drawing.Color,System.Int32,System.Drawing.Point,System.Int32,System.Int32)">
+            <summary>Draws an ellipse with the specified parameters.</summary>
+            <param name="lineColor">Color of the line along the edge of the ellipse.</param>
+            <param name="lineWidth">Width of the line along the edge of the ellipse.</param>
+            <param name="center">The coordinates of the center of the ellipse.</param>
+            <param name="xRadius">The radius along the X-axis.</param>
+            <param name="yRadius">The radius along the Y-axis.</param>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.DrawEllipse(System.Drawing.Color,System.Int32,System.Drawing.Color,System.Drawing.Point,System.Int32,System.Int32)">
+            <summary>Draws an ellipse with the specified parameters.</summary>
+            <param name="lineColor">Color of the line along the edge of the ellipse.</param>
+            <param name="lineWidth">Width of the line along the edge of the ellipse.</param>
+            <param name="fillColor">Color to fill the area enclosed by the ellipse with.</param>
+            <param name="center">The coordinates of the center of the ellipse.</param>
+            <param name="xRadius">The radius along the X-axis.</param>
+            <param name="yRadius">The radius along the Y-axis.</param>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.DrawEllipse(System.Drawing.Color,System.Int32,System.Drawing.Point,System.Drawing.Size)">
+            <summary>Draws an ellipse with the specified parameters.</summary>
+            <param name="lineColor">Color of the line along the edge of the ellipse.</param>
+            <param name="lineWidth">Width of the line along the edge of the ellipse.</param>
+            <param name="location">The upper left location of the ellipse.</param>
+            <param name="size">The size of the ellipse.</param>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.DrawEllipse(System.Drawing.Color,System.Int32,System.Drawing.Color,System.Drawing.Point,System.Drawing.Size)">
+            <summary>Draws an ellipse with the specified parameters.</summary>
+            <param name="lineColor">Color of the line along the edge of the ellipse.</param>
+            <param name="lineWidth">Width of the line along the edge of the ellipse.</param>
+            <param name="fillColor">Color to fill the area enclosed by the ellipse with.</param>
+            <param name="location">The upper left location of the ellipse.</param>
+            <param name="size">The size of the ellipse.</param>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.DrawImage(System.Drawing.Image,System.Drawing.Point)">
+            <summary>Draws the specified image at the given location.</summary>
+            <param name="image">The image to be drawn.</param>
+            <param name="location">
+            The upper left coordinates of the location the image will be drawn.
+            </param>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.DrawImage(System.Drawing.Image,System.Drawing.Point,System.Drawing.Size)">
+            <summary>Draws the specified image at the given location with the specified size.</summary>
+            <param name="image">The image to be drawn.</param>
+            <param name="location">
+            The upper left coordinates of the location the image will be drawn.
+            </param>
+            <param name="size">The size of the drawn image.</param>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.DrawLine(System.Drawing.Color,System.Int32,System.Drawing.Point,System.Drawing.Point)">
+            <summary>Draws a line connecting the two points.</summary>
+            <param name="color">The color of the line to be drawn.</param>
+            <param name="lineWidth">Width of the line.</param>
+            <param name="pt1">The starting point of the line.</param>
+            <param name="pt2">The end point of the line.</param>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.DrawLines(System.Drawing.Color,System.Int32,System.Drawing.Point[])">
+            <summary>Draws a series of line segments to connect the specified points.</summary>
+            <param name="color">The color.</param>
+            <param name="lineWidth">Width of the line.</param>
+            <param name="points">The points to be connected with line segments.</param>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.DrawPoint(System.Drawing.Color,System.Int32,System.Int32)">
+            <summary>Draws a point with the specified color at the given location.</summary>
+            <param name="color">The color of the point to be drawn.</param>
+            <param name="x">The X-coordinate of the location of the point to be drawn.</param>
+            <param name="y">The Y-coordinate of the location of the point to be drawn.</param>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.DrawPoint(System.Drawing.Color,System.Drawing.Point)">
+            <summary>Draws a point with the specified color at the given location.</summary>
+            <param name="color">The color of the point to be drawn.</param>
+            <param name="point">The location of the point to be drawn.</param>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.DrawPolygon(System.Drawing.Color,System.Int32,System.Drawing.Point[])">
+            <summary>Draws the polygon with the specified parameters.</summary>
+            <param name="lineColor">Color of the line along the polygon's edge.</param>
+            <param name="lineWidth">Width of the line.</param>
+            <param name="points">The points at the corners of the polygon.</param>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.DrawPolygon(System.Drawing.Color,System.Int32,System.Drawing.Color,System.Drawing.Point[])">
+            <summary>Draws the polygon with the specified parameters.</summary>
+            <param name="lineColor">Color of the line along the polygon's edge.</param>
+            <param name="fillColor">Colour to fill the polygon with.</param>
+            <param name="lineWidth">Width of the line.</param>
+            <param name="points">The points at the corners of the polygon.</param>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.DrawRectangle(System.Drawing.Color,System.Int32,System.Drawing.Point,System.Drawing.Size)">
+            <summary>Draws a rectangle with the specified parameters.</summary>
+            <param name="lineColor">Color of the line along the edge of the rectangle.</param>
+            <param name="lineWidth">Width of the line along the edge of the rectangle.</param>
+            <param name="location">The upper left location of the rectangle.</param>
+            <param name="size">The size of the rectangle.</param>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.DrawRectangle(System.Drawing.Color,System.Int32,System.Drawing.Color,System.Drawing.Point,System.Drawing.Size)">
+            <summary>Draws a rectangle with the specified parameters.</summary>
+            <param name="lineColor">Color of the line along the edge of the rectangle.</param>
+            <param name="lineWidth">Width of the line along the edge of the rectangle.</param>
+            <param name="fillColor">Color to fill the area enclosed by the rectangle with.</param>
+            <param name="location">The upper left location of the rectangle.</param>
+            <param name="size">The size of the rectangle.</param>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.DrawText(System.String,System.Drawing.Point,System.Single,System.Drawing.Color)">
+            <summary>
+            Draws the given text onto the <see cref="T:SimpleGui.Drawing.Canvas"/> at the specified location with the
+            given font size and colour.
+            </summary>
+            <param name="text">The text to be drawn to the <see cref="T:SimpleGui.Drawing.Canvas"/>.</param>
+            <param name="location">The lower upper left position at which the text will be drawn.</param>
+            <param name="fontSize">Size of the font.</param>
+            <param name="textColor">Colour of the text.</param>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.DrawText(System.String,System.Drawing.Point,System.Single,System.String,System.Drawing.Color)">
+            <summary>
+            Draws the given text onto the <see cref="T:SimpleGui.Drawing.Canvas"/> at the specified location with the
+            given font face, font size and colour.
+            </summary>
+            <param name="text">The text to be drawn to the <see cref="T:SimpleGui.Drawing.Canvas"/>.</param>
+            <param name="location">The lower upper left position at which the text will be drawn.</param>
+            <param name="fontSize">Size of the font.</param>
+            <param name="fontName">Name of the font face to use in drawing the text.</param>
+            <param name="textColor">Colour of the text.</param>
+            <remarks>
+            <para>
+            Any valid font name can be specified as <paramref name="fontName"/>. Additionally,
+            'sans-serif', 'serif' and 'monospace' can be specified in order to draw the text with
+            the default sans serif, serif or monospace font faces respectively.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.MeasureText(System.String,System.Single,System.String)">
+            <summary>
+            Measures the size of the text specified when drawn with the given font and size.
+            </summary>
+            <param name="text">The text whose size is to be measured.</param>
+            <param name="fontSize">Size of the font.</param>
+            <param name="fontName">Name of the font face to measure the text with.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.CanvasToClient(System.Drawing.Point)">
+            <summary>Computes the location of the specified canvas point into client coordinates.</summary>
+            <param name="point">The client coordinate <see cref="T:System.Drawing.Point"/> to convert.</param>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.ClientToCanvas(System.Drawing.Point)">
+            <summary>Computes the location of the specified client point into canvas coordinates.</summary>
+            <param name="point">The client coordinate <see cref="T:System.Drawing.Point"/> to convert.</param>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.AdjustCanvasRectangle">
+            <summary>Adjusts the canvas rectangle.</summary>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.GetFontFamily(System.String)">
+            <summary>Gets the font family of the font with the name specified.</summary>
+            <param name="familyName">Name of the family.</param>
+            <remarks>
+            <para>
+            Any valid font name can be specified as <paramref name="fontName"/>. Additionally,
+            'sans-serif', 'serif' and 'monospace' can be specified in order to draw the text with
+            the default sans serif, serif or monospace font faces respectively.
+            </para>
+            </remarks>
+            <returns>
+            The <see cref="T:System.Drawing.FontFamily"/> with the name specified or a generic sans-serif font if
+            there is no installed font with the given name.
+            </returns>
+        </member>
+        <member name="M:SimpleGui.Drawing.Canvas.Owner_SizeChanged(System.Object,System.EventArgs)">
+            <summary>Handles the SizeChanged event of the Owner control.</summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="P:SimpleGui.Drawing.Canvas.BackgroundBrush">
+            <summary>Gets the background brush.</summary>
+            <value>The background brush.</value>
+        </member>
+        <member name="P:SimpleGui.Drawing.Canvas.BackgroundColor">
+            <summary>Gets or sets the background color of the <see cref="T:SimpleGui.Drawing.Canvas"/>.</summary>
+        </member>
+        <member name="P:SimpleGui.Drawing.Canvas.Owner">
+            <summary>Gets the owner of the <see cref="T:SimpleGui.Drawing.Canvas"/>.</summary>
+        </member>
+        <member name="P:SimpleGui.Drawing.Canvas.Rectangle">
+            <summary>Gets the canvas' rectangle in client coordinates.</summary>
+        </member>
+        <member name="P:SimpleGui.Drawing.Canvas.Scale">
+            <summary>
+            Gets the scale factor at which the <see cref="T:SimpleGui.Drawing.Canvas"/> is drawn to the screen.
+            </summary>
+        </member>
+        <member name="P:SimpleGui.Drawing.Canvas.Size">
+            <summary>Gets or sets the size of the <see cref="T:SimpleGui.Drawing.Canvas"/>.</summary>
+        </member>
+        <member name="P:SimpleGui.Drawing.Canvas.Graphics">
+            <summary>Gets or sets the graphics for drawing to the canvas.</summary>
+        </member>
+        <member name="T:SimpleGui.Drawing.FpsCounter">
+            <summary>Class for counting the number of frames per second.</summary>
+        </member>
+        <member name="M:SimpleGui.Drawing.FpsCounter.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:SimpleGui.Drawing.FpsCounter"/> class.</summary>
+        </member>
+        <member name="M:SimpleGui.Drawing.FpsCounter.#ctor(System.Int32)">
+            <summary>Initializes a new instance of the <see cref="T:SimpleGui.Drawing.FpsCounter"/> class.</summary>
+            <param name="fpsBufferSize">
+            The size of the FPS buffer. Higher values reduces jumpiness of the
+            <see cref="P:SimpleGui.Drawing.FpsCounter.FPS"/> value.
+            </param>
+        </member>
+        <member name="M:SimpleGui.Drawing.FpsCounter.MarkFrame">
+            <summary>Marks the end of a frame.</summary>
+            <returns>The FPS of the frame that was just marked.</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:SimpleGui.Drawing.FpsCounter.SkipFrame" -->
+        <!-- Badly formed XML comment ignored for member "M:SimpleGui.Drawing.FpsCounter.SkipNextFrame" -->
+        <member name="M:SimpleGui.Drawing.FpsCounter.ToString">
+            <summary>Returns a <see cref="T:System.String"/> that represents this instance.</summary>
+            <returns>A <see cref="T:System.String"/> that represents this instance.</returns>
+        </member>
+        <member name="P:SimpleGui.Drawing.FpsCounter.FPS">
+            <summary>Gets the current frames per second.</summary>
+        </member>
+        <member name="P:SimpleGui.Drawing.FpsCounter.FpsBufferSize">
+            <summary>Gets the size of the FPS averaging buffer.</summary>
+        </member>
+        <member name="M:SimpleGui.ExtensionMethods.FindFocusedControl(System.Windows.Forms.Control)">
+            <summary>Finds the focused control.</summary>
+            <param name="control">The control whose children are to be searched.</param>
+            <returns>
+            A <see cref="T:System.Windows.Forms.Control"/> hosted by <paramref name="control"/> or
+            one of its child controls that has input focus.
+            </returns>
+        </member>
+        <member name="M:SimpleGui.ExtensionMethods.ToPoint(System.Drawing.PointF)">
+            <summary>Converts a <see cref="T:System.Drawing.PointF"/> to a <see cref="T:System.Drawing.Point"/>.</summary>
+            <param name="pt">The <see cref="T:System.Drawing.PointF"/> instance to be converted.</param>
+        </member>
+        <member name="M:SimpleGui.ExtensionMethods.ToRectangle(System.Drawing.RectangleF)">
+            <summary>
+            Converts a <see cref="T:System.Drawing.RectangleF"/> structure to a <see cref="T:System.Drawing.Rectangle"/>.
+            </summary>
+            <param name="rect">The <see cref="T:System.Drawing.RectangleF"/> instance to be converted.</param>
+        </member>
+        <member name="M:SimpleGui.ExtensionMethods.ToSize(System.Drawing.SizeF)">
+            <summary>
+            Converts a <see cref="T:System.Drawing.SizeF"/> structure to a <see cref="T:System.Drawing.Size"/> structure.
+            </summary>
+            <param name="rect">The <see cref="T:System.Drawing.SizeF"/> instance to be converted.</param>
+        </member>
+        <member name="T:SimpleGui.Controls.SimpleButton">
+            <summary>
+            A simplified class for encapsulating the <see cref="T:System.Windows.Forms.Button"/> control.
+            </summary>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleButton.#ctor(System.Windows.Forms.Button)">
+            <summary>Initializes a new instance of the <see cref="T:SimpleGui.Controls.SimpleButton"/> class.</summary>
+            <param name="button">The button on which this  <see cref="T:SimpleGui.Controls.SimpleButton"/> is based.</param>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleButton.ToString">
+            <summary>Returns a <see cref="T:System.String"/> that represents this instance.</summary>
+            <returns>A <see cref="T:System.String"/> that represents this instance.</returns>
+        </member>
+        <member name="F:SimpleGui.SimpleGuiForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:SimpleGui.SimpleGuiForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:SimpleGui.SimpleGuiForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:SimpleGui.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="M:SimpleGui.SimpleGui.#ctor">
+            <summary>Creates a new instance of the <see cref="T:SimpleGui.SimpleGui"/> class.</summary>
+        </member>
+        <member name="M:SimpleGui.SimpleGui.CreateTimer(System.Int32,SimpleGui.Controls.SimpleEventHandler)">
+            <summary>Creates timer associated with the form.</summary>
+            <param name="interval">
+            The interval in milliseconds between consecutive ticks of the timer.
+            </param>
+            <param name="tickHandler">The event handler for the timer's tick.</param>
+        </member>
+        <member name="M:SimpleGui.SimpleGui.Start">
+            <summary>Starts running the SimpleGui program.</summary>
+        </member>
+        <member name="M:SimpleGui.SimpleGui.CreateTimer(System.Int32,SimpleGui.Controls.MultiControlEventHandler)">
+            <summary>Creates timer associated with the form.</summary>
+            <param name="interval">
+            The interval in milliseconds between consecutive ticks of the timer.
+            </param>
+            <param name="tickHandler">The event handler for the timer's tick.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SimpleGui.SimpleGui.Form_FormClosed(System.Object,System.Windows.Forms.FormClosedEventArgs)">
+            <summary>Handles the FormClosed event of the Form control.</summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.FormClosedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="P:SimpleGui.SimpleGui.CanvasPanel">
+            <summary>Gets the canvas panel of the <see cref="T:SimpleGui.SimpleGuiForm"/>.</summary>
+        </member>
+        <member name="P:SimpleGui.SimpleGui.ControlsPanel">
+            <summary>Gets the controls panel of the <see cref="T:SimpleGui.SimpleGuiForm"/>.</summary>
+        </member>
+        <member name="P:SimpleGui.SimpleGui.Output">
+            <summary>Gets the output panel of the <see cref="T:SimpleGui.SimpleGuiForm"/>.</summary>
+        </member>
+        <member name="P:SimpleGui.SimpleGui.WindowTitle">
+            <summary>Gets or sets the title of the SimpleGui form.</summary>
+        </member>
+        <member name="T:SimpleGui.Controls.SimpleLabel">
+            <summary>
+            A simplified class for encapsulating the <see cref="T:System.Windows.Forms.Label"/> control.
+            </summary>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleLabel.#ctor(System.Windows.Forms.Label)">
+            <summary>Initializes a new instance of the <see cref="T:SimpleGui.Controls.SimpleLabel"/> class.</summary>
+            <param name="label">The label on which this <see cref="T:SimpleGui.Controls.SimpleLabel"/> is based.</param>
+        </member>
+        <member name="T:SimpleGui.Controls.SimpleTextBox">
+            <summary>
+            A simple class encapsulating the <see cref="T:System.Windows.Forms.TextBox"/> control.
+            </summary>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleTextBox.#ctor(System.Windows.Forms.Label,System.Windows.Forms.TextBox)">
+            <summary>Initializes a new instance of the <see cref="T:SimpleGui.Controls.SimpleTextBox"/> class.</summary>
+            <param name="captionLabel">The caption label.</param>
+            <param name="textBox">The text box.</param>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleTextBox.Clear">
+            <summary>Clears the input text.</summary>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleTextBox.ToString">
+            <summary>Returns a <see cref="T:System.String"/> that represents this instance.</summary>
+            <returns>A <see cref="T:System.String"/> that represents this instance.</returns>
+        </member>
+        <member name="P:SimpleGui.Controls.SimpleTextBox.Caption">
+            <summary>Gets or sets the caption.</summary>
+            <value>The caption.</value>
+        </member>
+        <member name="P:SimpleGui.Controls.SimpleTextBox.Text">
+            <summary>Gets or sets the input text of this <see cref="T:SimpleGui.Controls.SimpleTextBox"/>.</summary>
+        </member>
+        <member name="M:System.Windows.Forms.SplitContainerTools.#ctor(System.Windows.Forms.SplitContainer)">
+            <summary>Initializes a new instance of the <see cref="T:System.Windows.Forms.SplitContainerTools"/> class.</summary>
+            <param name="container">
+            The <see cref="T:System.Windows.Forms.SplitContainer"/> to which this instance will be bound.
+            </param>
+        </member>
+        <member name="M:System.Windows.Forms.SplitContainerTools.FindFocusedControl(System.Windows.Forms.Control)">
+            <summary>Finds the focused control.</summary>
+            <param name="control">The control whose children are to be searched.</param>
+            <returns>
+            A <see cref="T:System.Windows.Forms.Control"/> hosted by <paramref name="control"/> or
+            one of its child controls that has input focus.
+            </returns>
+        </member>
+        <member name="M:System.Windows.Forms.SplitContainerTools.RefreshButtons">
+            <summary>Refreshes the buttons.</summary>
+        </member>
+        <member name="M:System.Windows.Forms.SplitContainerTools.UpdateDisplay">
+            <summary>Updates the display of the SplitControl.</summary>
+        </member>
+        <member name="P:System.Windows.Forms.SplitContainerTools.Buttons">
+            <summary>Gets or sets a the <see cref="T:System.Windows.Forms.SplitContainerButtons"/> to be shown.</summary>
+            <value>
+            <c>true</c> if the collapse and restore buttons should be shown; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:System.Windows.Forms.SplitContainerTools.Container">
+            <summary>Gets the container this <see cref="T:System.Windows.Forms.SplitContainer"/> is bound to.</summary>
+        </member>
+        <member name="P:System.Windows.Forms.SplitContainerTools.DrawPanel1Border">
+            <summary>
+            Gets or sets a value indicating whether a 3D border should be drawn for <see cref="P:System.Windows.Forms.SplitContainer.Panel1"/>.
+            </summary>
+            <value>
+            <c>true</c> if a 3D border should be drawn for <see cref="P:System.Windows.Forms.SplitContainer.Panel1"/>;
+            otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:System.Windows.Forms.SplitContainerTools.DrawPanel2Border">
+            <summary>
+            Gets or sets a value indicating whether a 3D border should be drawn for <see cref="!:SplitContainer.Panel"/>.
+            </summary>
+            <value>
+            <c>true</c> if a 3D border should be drawn for <see cref="P:System.Windows.Forms.SplitContainer.Panel1"/>;
+            otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:System.Windows.Forms.SplitContainerTools.KeepFocus">
+            <summary>
+            Gets or sets a value indicating whether the control should keep focus after the splitter
+            is moved with the mouse.
+            </summary>
+            <value>
+            <c>true</c> if the control should keep focus after dragging the splitter; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:System.Windows.Forms.SplitContainerTools.ShowGripper">
+            <summary>Gets or sets a value indicating whether a gripper should be shown.</summary>
+            <value><c>true</c> if gripper should be shown; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:System.Windows.Forms.SplitContainerTools.SplitContainerButton.IsInstantiated">
+            <summary>Gets a value indicating whether this instance has been instantiated.</summary>
+            <value><c>true</c> if this instance has been instantiated; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="F:System.Windows.Forms.SplitContainerButtons.None">
+            <summary>No buttons are displayed.</summary>
+        </member>
+        <member name="F:System.Windows.Forms.SplitContainerButtons.ChangeOrientation">
+            <summary>
+            Displays the button for changing the <see cref="!:SplitterContainer.Orientation"/> property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Forms.SplitContainerButtons.Panel1">
+            <summary>
+            Displays the button for changing the <see cref="!:SplitterContainer.Panel1Collapsed"/> property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Forms.SplitContainerButtons.Panel2">
+            <summary>
+            Displays the button for changing the <see cref="!:SplitterContainer.Panel2Collapsed"/> property.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Forms.SplitContainerButtons.PanelControls">
+            <summary>Displays the buttons for changing the collapsed state of both panels.</summary>
+        </member>
+        <member name="T:SimpleGui.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:SimpleGui.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:SimpleGui.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:SimpleGui.Properties.Resources.AppIcon">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SimpleGui")]
-[assembly: AssemblyDescription("SimpleGui is for building interactive programs and drawing without all the complexities of layout and design.")]
+[assembly: AssemblyTitle("SimpleGuiApplication")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Dinofage")]
-[assembly: AssemblyProduct("SimpleGui")]
-[assembly: AssemblyCopyright("Copyright © Dinofage 2015")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("SimpleGuiApplication")]
+[assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("4a9b2095-f8ef-4b83-af36-ba1d25524821")]
+[assembly: Guid("4cc3c974-8801-4ade-810d-4129b2a85b60")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.2.1.0")]
-//[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
