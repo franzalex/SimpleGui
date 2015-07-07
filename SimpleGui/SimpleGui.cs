@@ -10,7 +10,7 @@ namespace SimpleGui
     {
         private SimpleGuiCanvasPanel _canvasPanel;
         private SimpleGuiControlsPanel _controlsPanel;
-        private SimpleGuiLogPanel _logPanel;
+        private SimpleGuiOutputPanel _outputPanel;
         private SimpleGuiForm Form;
         private List<Timer> timers;
 
@@ -27,7 +27,7 @@ namespace SimpleGui
 
             _controlsPanel = new SimpleGuiControlsPanel(Form.spltControls.Panel1);
             _canvasPanel = new SimpleGuiCanvasPanel(Form.spltCanvas.Panel1);
-            _logPanel = new SimpleGuiLogPanel(Form.spltCanvas.Panel2);
+            _outputPanel = new SimpleGuiOutputPanel(Form.spltCanvas.Panel2);
         }
 
         /// <summary>Gets the canvas panel of the <see cref="SimpleGuiForm"/>.</summary>
@@ -43,9 +43,9 @@ namespace SimpleGui
         }
 
         /// <summary>Gets the output panel of the <see cref="SimpleGuiForm"/>.</summary>
-        public SimpleGuiLogPanel Output
+        public SimpleGuiOutputPanel Output
         {
-            get { return _logPanel; }
+            get { return _outputPanel; }
         }
 
         /// <summary>Gets or sets the title of the SimpleGui form.</summary>

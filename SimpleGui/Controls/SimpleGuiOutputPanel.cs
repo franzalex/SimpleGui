@@ -1,11 +1,15 @@
 ﻿
 namespace SimpleGui.Controls
 {
-    public class SimpleGuiLogPanel : SimpleGuiPanel
+    public class SimpleGuiOutputPanel : SimpleGuiPanel
     {
         private SimpleGuiForm Form;
 
-        public SimpleGuiLogPanel(System.Windows.Forms.SplitterPanel splitterPanel)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SimpleGuiOutputPanel"/> class.
+        /// </summary>
+        /// <param name="splitterPanel">The splitter panel.</param>
+        public SimpleGuiOutputPanel(System.Windows.Forms.SplitterPanel splitterPanel)
             : base(splitterPanel)
         {
             this.Form = this.Parent.ParentForm as SimpleGuiForm;
@@ -28,13 +32,20 @@ namespace SimpleGui.Controls
             }
         }
 
-        /// <summary>Prints the specified message to the form's output.</summary>
-        /// <param name="message">The message to be printed.</param>
-        public void Print(string message)
+        /// <summary>Writes the specified message to the form's output.</summary>
+        /// <param name="message">The message to be written to the output.</param>
+        public void Write(string message)
         {
             this.Form.txtLog.AppendText(message + "\r\n");
             this.Form.txtLog.Select(this.Form.txtLog.TextLength - 1, 0);
             this.Form.txtLog.ScrollToCaret();
+        }
+
+        /// <summary>Writes the string representation of the specified object to the form's output.</summary>
+        /// <param name="obj">The object whose string representation is to be written to the output.</param>
+        public void Write(object obj)
+        {
+            this.Write(obj.ToString());
         }
 
         /// <summary>Clears all text printed on the output.</summary>

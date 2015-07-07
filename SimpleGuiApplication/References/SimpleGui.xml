@@ -215,20 +215,24 @@
             </summary>
             <param name="text">The text associated with the event.</param>
         </member>
-        <member name="M:SimpleGui.Controls.SimpleGuiLogPanel.#ctor(System.Windows.Forms.SplitterPanel)">
+        <member name="M:SimpleGui.Controls.SimpleGuiOutputPanel.#ctor(System.Windows.Forms.SplitterPanel)">
             <summary>
-            Initializes a new instance of the <see cref="T:SimpleGui.Controls.SimpleGuiLogPanel"/> class.
+            Initializes a new instance of the <see cref="T:SimpleGui.Controls.SimpleGuiOutputPanel"/> class.
             </summary>
             <param name="splitterPanel">The splitter panel.</param>
         </member>
-        <member name="M:SimpleGui.Controls.SimpleGuiLogPanel.Print(System.String)">
-            <summary>Prints the specified message to the form's output.</summary>
-            <param name="message">The message to be printed.</param>
+        <member name="M:SimpleGui.Controls.SimpleGuiOutputPanel.Write(System.String)">
+            <summary>Writes the specified message to the form's output.</summary>
+            <param name="message">The message to be written to the output.</param>
         </member>
-        <member name="M:SimpleGui.Controls.SimpleGuiLogPanel.Clear">
+        <member name="M:SimpleGui.Controls.SimpleGuiOutputPanel.Write(System.Object)">
+            <summary>Writes the string representation of the specified object to the form's output.</summary>
+            <param name="obj">The object whose string representation is to be written to the output.</param>
+        </member>
+        <member name="M:SimpleGui.Controls.SimpleGuiOutputPanel.Clear">
             <summary>Clears all text printed on the output.</summary>
         </member>
-        <member name="P:SimpleGui.Controls.SimpleGuiLogPanel.Visible">
+        <member name="P:SimpleGui.Controls.SimpleGuiOutputPanel.Visible">
             <summary>Gets or sets a value indicating whether the panel is visible.</summary>
             <value><c>true</c> if the panel is visible; otherwise, <c>false</c>.</value>
         </member>

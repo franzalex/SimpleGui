@@ -7,8 +7,11 @@ namespace SimpleGui.Drawing
 {
     public class Canvas
     {
+        /// <summary>String constant for selecting the default monospace font</summary>
         public const string Font_Monospace = "monospace";
+        /// <summary>String constant for selecting the default sans-serif font</summary>
         public const string Font_SansSerif = "sans-serif";
+        /// <summary>String constant for selecting the default serif font</summary>
         public const string Font_Serif = "serif";
         private SolidBrush _backgroundBrush;
         private Control _owner;
