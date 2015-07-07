@@ -37,7 +37,7 @@ namespace SimpleGui
             get { return _controlsPanel; }
         }
 
-        /// <summary>Gets the output panel of the <see cref="SimpleGUiForm"/>.</summary>
+        /// <summary>Gets the output panel of the <see cref="SimpleGuiForm"/>.</summary>
         public SimpleGuiLogPanel Output
         {
             get { return _logPanel; }
@@ -48,6 +48,30 @@ namespace SimpleGui
         {
             get { return Form.Text; }
             set { Form.Text = value; }
+        }
+
+        /// <summary>Creates timer associated with the form.</summary>
+        /// <param name="interval">
+        /// The interval in milliseconds between consecutive ticks of the timer.
+        /// </param>
+        /// <param name="tickHandler">The event handler for the timer's tick.</param>
+        public SimpleTimer CreateTimer(int interval, SimpleEventHandler tickHandler)
+        {
+            return this.CreateTimer(interval, (tmr) => tickHandler.Invoke());
+        }
+
+        /// <summary>Creates timer associated with the form.</summary>
+        /// <param name="interval">
+        /// The interval in milliseconds between consecutive ticks of the timer.
+        /// </param>
+        /// <param name="tickHandler">The event handler for the timer's tick.</param>
+        /// <returns></returns>
+        private SimpleTimer CreateTimer(int interval, MultiControlEventHandler tickHandler)
+        {
+            var tmr = new Timer(Form.Components) { Interval = interval };
+            var sTmr = new SimpleTimer(tmr);
+            tmr.Tick += (o, e) => tickHandler(sTmr);
+            return sTmr;
         }
 
         /// <summary>Starts running the SimpleGui program.</summary>

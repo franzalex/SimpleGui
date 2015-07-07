@@ -49,6 +49,7 @@
     <Compile Include="Controls\SimpleGuiControlsPanel.cs" />
     <Compile Include="Controls\SimpleGuiEventDelegates.cs" />
     <Compile Include="Controls\SimpleGuiLogPanel.cs" />
+    <Compile Include="Controls\SimpleTimer.cs" />
     <Compile Include="Drawing\Canvas.cs" />
     <Compile Include="Drawing\FpsCounter.cs" />
     <Compile Include="ExtensionMethods.cs" />
