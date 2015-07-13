@@ -36,6 +36,9 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -55,6 +58,7 @@
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Controls\SimpleButton.cs" />
     <Compile Include="Controls\SimpleControl.cs" />
+    <Compile Include="Random.cs" />
     <Compile Include="SimpleGuiForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,8 +103,10 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetDir)\*.xml" "$(SolutionDir)\SimpleGuiApplication\References\*.xml"
-copy "$(TargetPath)" "$(SolutionDir)\SimpleGuiApplication\References\"</PostBuildEvent>
+    <PostBuildEvent>ECHO .pdb&gt; "$(TargetDir)\exclude.txt"
+XCOPY /Y /I "$(TargetDir)$(TargetName).*" "$(SolutionDir)\Output\*.*" /EXCLUDE:exclude.txt
+XCOPY /Y /I "$(TargetDir)$(TargetName).*" "$(SolutionDir)\SimpleGuiApplication\References\*.*" /EXCLUDE:exclude.txt
+DEL "$(TargetDir)\exclude.txt"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
