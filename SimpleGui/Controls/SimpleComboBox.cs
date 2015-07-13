@@ -9,6 +9,9 @@ namespace SimpleGui.Controls
     {
         private Label _label;
 
+        /// <summary>Initializes a new instance of the <see cref="SimpleComboBox"/> class.</summary>
+        /// <param name="captionLabel">The caption label of the <see cref="SimpleComboBox"/>.</param>
+        /// <param name="cbo">The combo box of the <see cref="SimpleComboBox"/>.</param>
         public SimpleComboBox(Label captionLabel, ComboBox cbo)
             : base(cbo)
         {
@@ -23,7 +26,16 @@ namespace SimpleGui.Controls
             set { _label.Text = value; }
         }
 
-        /// <summary>Gets or sets the input text of this <see cref="SimpleTextBox"/>.</summary>
+        /// <summary>Gets the drop down items.</summary>
+        public ComboBox.ObjectCollection DropDownItems
+        {
+            get
+            {
+                return this.StandardControl.Items;
+            }
+        }
+
+        /// <summary>Gets or sets the input text of this <see cref="SimpleComboBox"/>.</summary>
         public string Text
         {
             get
