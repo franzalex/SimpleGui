@@ -16,6 +16,7 @@ namespace SimpleGui.Controls
         private MouseEventHandler _mouseDragHandler;
         private int _targetFps;
         private Canvas canvas;
+        private System.Collections.Generic.HashSet<Keys> downKeys;
         private bool formActive;
         private FpsCounter fpsCounter;
         private long lastFrameTime;
@@ -29,12 +30,11 @@ namespace SimpleGui.Controls
             thisForm = this.Parent.ParentForm as SimpleGuiForm;
             thisForm.KeyPreview = true;
 
-            thisForm.KeyDown += (o, e) => { if (_keyDownHandler != null) _keyDownHandler(e.KeyCode); };
-            thisForm.KeyUp += (o, e) => { if (_keyUpHandler != null) _keyUpHandler(e.KeyCode); };
+            thisForm.KeyDown += thisForm_KeyDown;
+            thisForm.KeyUp += thisForm_KeyUp;
             thisForm.Deactivate += thisForm_Deactivate;
             thisForm.Activated += thisForm_Activated;
             thisForm.FormClosing += (o, e) => this.Stop();
-
 
             // set panel properties and event handlers
             Panel.BackColor = Color.White;
@@ -45,7 +45,6 @@ namespace SimpleGui.Controls
             Panel.MouseMove += splitterPanel_MouseMove;
             Panel.Paint += Panel_Paint;
 
-
             // set the canvas and frame rate
             canvas = new Canvas() {
                 BackgroundColor = Color.Black,
@@ -54,6 +53,8 @@ namespace SimpleGui.Controls
             };
 
             this.TargetFrameRate = 30;
+
+            downKeys = new System.Collections.Generic.HashSet<Keys>();
         }
 
         /// <summary>Gets or sets the background color of the canvas.</summary>
@@ -280,6 +281,18 @@ namespace SimpleGui.Controls
         {
             formActive = false;
             StartStop_Canvas(sender, e);
+        }
+
+        private void thisForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (downKeys.Add(e.KeyCode) && _keyUpHandler != null)
+                _keyDownHandler.Invoke(e.KeyCode);
+        }
+
+        private void thisForm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (downKeys.Remove(e.KeyCode) && _keyDownHandler != null)
+                _keyUpHandler.Invoke(e.KeyCode);
         }
     }
 }
