@@ -149,7 +149,7 @@ namespace SimpleGui.Controls
         }
 
         /// <summary>Sets an event handler to listen for dragging the mouse.</summary>
-        /// <param name="mouseClickHandler">The mouse drag event handler.</param>
+        /// <param name="mouseDragHandler">The mouse drag event handler.</param>
         /// <remarks>
         /// <para>A mouse drag event occurs when the mouse is moved while a button is held down.</para>
         /// <para>
@@ -163,7 +163,6 @@ namespace SimpleGui.Controls
         }
 
         /// <summary>Starts drawing the canvas at the specified FPS.</summary>
-        /// <param name="fps">The number of frames to be drawn per second.</param>
         internal void Start()
         {
             var fpsDelta = 1000 / _targetFps;  // time delta between two frames at specified FPS
