@@ -51,7 +51,8 @@ namespace SimpleGui.Controls
             this.Form.AddToControls(btn);
 
             var sbtn = new SimpleButton(btn);
-            btn.Click += (o, e) => clickHandler.Invoke(sbtn);
+            if (clickHandler != null)
+                btn.Click += (o, e) => clickHandler.Invoke(sbtn);
 
             return sbtn;
         }
@@ -85,7 +86,10 @@ namespace SimpleGui.Controls
             this.Form.AddToControls(lbl, cbo);
 
             var scbo = new SimpleComboBox(lbl, cbo);
-            cbo.SelectedIndexChanged += (o, e) => selectionHandler.Invoke(scbo, cbo.Items[cbo.SelectedIndex].ToString());
+            if (selectionHandler != null)
+                cbo.SelectedIndexChanged += (o, e) => {
+                    selectionHandler.Invoke(scbo, cbo.Items[cbo.SelectedIndex].ToString());
+                };
 
             return scbo;
         }
@@ -130,7 +134,10 @@ namespace SimpleGui.Controls
             this.Form.AddToControls(lbl, txt);
 
             var stb = new SimpleTextBox(lbl, txt);
-            txt.KeyDown += (o, e) => { if (e.KeyCode == Keys.Enter) inputHandler.Invoke(stb, txt.Text); };
+            if (inputHandler != null)
+                txt.KeyDown += (o, e) => {
+                    if (e.KeyCode == Keys.Enter) inputHandler.Invoke(stb, txt.Text);
+                };
 
             return stb;
         }
